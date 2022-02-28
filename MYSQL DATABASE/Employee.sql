@@ -21,8 +21,6 @@ VALUES
   (100000000008,"Branden Sloan","1996-11-11","Ap #385-8102 Lectus Street","3888113158",2971898,"donec.egestas.duis@google.edu","F"),
   (100000000009,"Eric Webb","1998-01-14","152-5786 Ac, Avenue","9526742764",3110806,"fames@icloud.couk","F"),
   (100000000010,"Patience Vega","1978-09-03","P.O. Box 149, 9882 Non St.","5458464550",9784332,"a.arcu@protonmail.net","F");
-INSERT INTO Employee (EmpID,Name,DOB,Address,PhoneNo,Salary,Email,Gender)
-VALUES
   (100000000011,"Amity Walls","1975-08-14","Ap #611-6081 Malesuada Av.","1348786863",1857992,"curae.phasellus@outlook.couk","M"),
   (100000000012,"Cally Mathews","1997-06-05","Ap #809-3522 Suspendisse St.","0636354637",5772138,"nisi.mauris.nulla@hotmail.couk","M"),
   (100000000013,"Quinlan Blankenship","2001-06-12","Ap #562-1989 Euismod Avenue","1521595685",6890439,"amet@aol.com","F"),
@@ -33,8 +31,6 @@ VALUES
   (100000000018,"Virginia Wagner","1989-07-06","724-8198 Vitae Street","2816586564",8367921,"cursus.a.enim@hotmail.com","F"),
   (100000000019,"Basil Herman","1998-05-31","Ap #320-950 A Road","1256869863",7356689,"nunc@hotmail.ca","M"),
   (100000000020,"Katell Manning","1987-05-08","P.O. Box 246, 2368 Vel, Av.","3568876456",8188532,"quisque.fringilla.euismod@yahoo.ca","M");
-INSERT INTO Employee (EmpID,Name,DOB,Address,PhoneNo,Salary,Email,Gender)
-VALUES
   (100000000021,"Armand Pollard","1989-08-23","319-7139 Libero. St.","7818813521",5493866,"adipiscing.fringilla.porttitor@yahoo.com","M"),
   (100000000022,"Ray Donaldson","1983-06-28","1606 Arcu Ave","6886775667",7282567,"posuere.cubilia@aol.edu","M"),
   (100000000023,"Len Andrews","1980-07-25","P.O. Box 885, 2302 Mollis. Ave","6245769211",5949070,"hendrerit@google.edu","M"),
