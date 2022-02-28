@@ -1,0 +1,15 @@
+CREATE TABLE Branch (
+  BranchNo INT,
+  ManagerID CHAR(12),
+  Address VARCHAR(255),
+  PhoneNo BIGINT,
+  PRIMARY KEY (BranchNo),
+  FOREIGN KEY (ManagerID) REFERENCES Employee(EmpID));
+
+INSERT INTO Branch (BranchNo,ManagerID,Address,PhoneNo)
+VALUES
+  (1,100000000001,"Ap #703-4893 Nunc Rd.",6916326850),
+  (2,100000000002,"P.O. Box 645, 9873 Lacus. St.",8268560603),
+  (3,100000000003,"198-8757 Faucibus. Ave",6821970200),
+  (4,100000000004,"Ap #692-5594 Duis Ave",5269130193),
+  (5,100000000005,"3140 Porttitor Rd.",3234051526);
