@@ -1,0 +1,7 @@
+LoanType,status,count(*)
+Car,Approved,7
+Car,Not-Approved,8
+Home,Approved,2
+Home,Not-Approved,6
+Personal,Approved,3
+Personal,Not-Approved,4
