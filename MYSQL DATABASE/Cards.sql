@@ -1,12 +1,12 @@
-
 CREATE TABLE Cards(
-	CardNo INT ,
+  	CardNo INT ,
     CVV char(3),
     AccNo BIGINT NOT NULL,
     IssueDATE DATE,
     ExpDATE DATE,
     pin INT NOT NULL,
-    PRIMARY KEY(CardNo)); 
+    PRIMARY KEY(CardNo),
+    FOREIGN KEY(AccNo) REFERENCES Accounts(AccNo)); 
 
 INSERT INTO Cards(CardNo,cvv,AccNo,IssueDATE,ExpDATE,pin)
 VALUES

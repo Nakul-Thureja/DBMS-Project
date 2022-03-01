@@ -8,7 +8,7 @@ CREATE TABLE Customer(
     PhoneNo char(10) NOT NULL, 
     Email VARCHAR(100) NOT NULL, 
     Gender char(1),
-    primary key(CID,Aadhar,PanNo));
+    primary key(CID));
 
 
 INSERT INTO Customer(CID,AadharNo,PanNo,Name,DOB,Address,PhoneNo,Email,Gender)

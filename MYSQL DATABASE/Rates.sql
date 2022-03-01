@@ -1,6 +1,7 @@
 CREATE TABLE Rates(
-	Type VARCHAR(50),
-    ROI FLOAT );
+	  Type VARCHAR(50),
+    ROI FLOAT ,
+    primary key(Type));
 
 INSERT INTO Rates (Type,ROI)
 VALUES
@@ -8,4 +9,4 @@ VALUES
   ("Home",8.06),
   ("Car",7.20),
   ("Savings",2.22),
-  ("FD",4.56);
+  ("Current",4.56);

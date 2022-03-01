@@ -1,10 +1,9 @@
 CREATE TABLE Branch (
-  BranchNo INT,
+  BranchNo MEDIUMINT NOT NULL,
   ManagerID CHAR(12),
   Address VARCHAR(255),
   PhoneNo BIGINT,
-  PRIMARY KEY (BranchNo),
-  FOREIGN KEY (ManagerID) REFERENCES Employee(EmpID));
+  PRIMARY KEY (BranchNo));
 
 INSERT INTO Branch (BranchNo,ManagerID,Address,PhoneNo)
 VALUES

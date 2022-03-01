@@ -1,9 +1,8 @@
 CREATE TABLE Works (
-  BranchNo INT,
+  BranchNo mediumint,
   EmpID CHAR(12) NOT NULL,
   DOJ date,
-  FOREIGN KEY (BranchNo) REFERENCES Branch(BranchNo),
-  FOREIGN KEY (EmpID) REFERENCES Employee(EmpID));
+  PRIMARY KEY(BranchNo,EmpID));
 
 INSERT INTO Works (BranchNo,EmpID,DOJ)
 VALUES

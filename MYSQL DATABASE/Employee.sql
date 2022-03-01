@@ -1,4 +1,3 @@
-
 CREATE TABLE Employee(
 	  EmpID CHAR(12) NOT NULL,
     AadharNo CHAR(12) NOT NULL,

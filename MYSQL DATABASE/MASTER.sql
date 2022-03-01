@@ -1,4 +1,3 @@
-drop database BankingV1;
 Create Database BankingV1;
 Use BankingV1;
 CREATE TABLE Customer(
@@ -164,8 +163,7 @@ CREATE TABLE Branch (
   ManagerID CHAR(12),
   Address VARCHAR(255),
   PhoneNo BIGINT,
-  PRIMARY KEY (BranchNo),
-  FOREIGN KEY (ManagerID) REFERENCES Employee(EmpID));
+  PRIMARY KEY (BranchNo));
 
 INSERT INTO Branch (BranchNo,ManagerID,Address,PhoneNo)
 VALUES
@@ -297,7 +295,7 @@ VALUES
 
 
 CREATE TABLE Loan(
-	LoanID BIGINT, 
+	  LoanID BIGINT, 
     CID BIGINT NOT NULL,
     BranchNo MEDIUMINT NOT NULL,
     LoanType VARCHAR(10) NOT NULL,
@@ -346,8 +344,9 @@ VALUES
 
 
 CREATE TABLE Rates(
-	Type VARCHAR(50),
-    ROI FLOAT );
+	  Type VARCHAR(50),
+    ROI FLOAT ,
+    primary key(Type));
 
 INSERT INTO Rates (Type,ROI)
 VALUES
@@ -365,9 +364,7 @@ CREATE TABLE Transactions(
     amount BIGINT NOT NULL,
     DOT DATE,
     ReceiverAccNo BIGINT NOT NULL,
-    PRIMARY KEY(Tno),
-    FOREIGN KEY (SenderAccNo) REFERENCES Accounts(AccNo),
-    FOREIGN KEY (ReceiverAccNo) REFERENCES Accounts(AccNo));
+    PRIMARY KEY(Tno));
 
 INSERT INTO Transactions (Tno,TransactionType,SenderAccNo,Amount,DOT,ReceiverAccNo)
 VALUES
@@ -577,8 +574,7 @@ CREATE TABLE Works (
   BranchNo mediumint,
   EmpID CHAR(12) NOT NULL,
   DOJ date,
-FOREIGN KEY (BranchNo) REFERENCES Branch(BranchNo),
-FOREIGN KEY (EmpID) REFERENCES Employee(EmpID));
+  PRIMARY KEY(BranchNo,EmpID));
 
 INSERT INTO Works (BranchNo,EmpID,DOJ)
 VALUES
@@ -609,13 +605,14 @@ VALUES
   (4,100000000025,"2006-07-19");
 
 CREATE TABLE Cards(
-	CardNo INT ,
+  	CardNo INT ,
     CVV char(3),
     AccNo BIGINT NOT NULL,
     IssueDATE DATE,
     ExpDATE DATE,
     pin INT NOT NULL,
-    PRIMARY KEY(CardNo)); 
+    PRIMARY KEY(CardNo),
+    FOREIGN KEY(AccNo) REFERENCES Accounts(AccNo)); 
 
 INSERT INTO Cards(CardNo,cvv,AccNo,IssueDATE,ExpDATE,pin)
 VALUES
