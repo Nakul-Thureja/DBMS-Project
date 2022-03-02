@@ -6,10 +6,8 @@ CREATE TABLE Accounts(
     Balance BIGINT, 
     DOC DATE NOT NULL, 
     InterestAmount INT, 
-    NomineeId INT,
-    PRIMARY KEY(AccNo),
-    FOREIGN KEY (CID) REFERENCES Customer(CID),
-    FOREIGN KEY (BranchNo) REFERENCES Branch(BranchNo)
+    NomineeId BIGINT,
+    PRIMARY KEY(AccNo)
     );
 
 
