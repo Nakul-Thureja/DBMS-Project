@@ -182,10 +182,8 @@ CREATE TABLE Accounts(
     Balance BIGINT, 
     DOC DATE NOT NULL, 
     InterestAmount INT, 
-    NomineeId INT,
-    PRIMARY KEY(AccNo),
-    FOREIGN KEY (CID) REFERENCES Customer(CID),
-    FOREIGN KEY (BranchNo) REFERENCES Branch(BranchNo)
+    NomineeId BIGINT,
+    PRIMARY KEY(AccNo)
     );
 
 
@@ -300,16 +298,14 @@ CREATE TABLE Loan(
     BranchNo MEDIUMINT NOT NULL,
     LoanType VARCHAR(10) NOT NULL,
     duration INT,
+    DOC DATE,
     TotalAmount BIGINT,
     RemainingAmount BIGINT,
     STATUS VARCHAR(14),
     NomineeId BIGINT,
-    PRIMARY KEY(LoanID),
-    FOREIGN KEY (BranchNo) REFERENCES Branch(BranchNo),
-    FOREIGN KEY (CID) REFERENCES Customer(CID),
-    FOREIGN KEY (NomineeId) REFERENCES Customer(CID)); 
+    PRIMARY KEY(LoanID)); 
 
-INSERT INTO Loan (LoanID,CID,BranchNo,LoanType,duration,TotalAmount,RemainingAmount,Status,NomineeID)
+INSERT INTO Loan (LoanID,CID,BranchNo,LoanType,duration,DATE,TotalAmount,RemainingAmount,Status,NomineeID)
 VALUES
   (1000000000001,1000000050,1,"Personal",1,824416,7104,"Approved",1000000039),
   (1000000000002,1000000068,3,"Personal",5,358152,7204,"Approved",1000000027),
