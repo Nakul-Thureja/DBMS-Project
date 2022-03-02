@@ -305,7 +305,7 @@ CREATE TABLE Loan(
     NomineeId BIGINT,
     PRIMARY KEY(LoanID)); 
 
-INSERT INTO Loan (LoanID,CID,BranchNo,LoanType,duration,DATE,TotalAmount,RemainingAmount,Status,NomineeID)
+INSERT INTO Loan (LoanID,CID,BranchNo,LoanType,duration,DOC,TotalAmount,RemainingAmount,Status,NomineeID)
 VALUES
   (1000000000001,1000000050,1,"Personal",1,824416,7104,"Approved",1000000039),
   (1000000000002,1000000068,3,"Personal",5,358152,7204,"Approved",1000000027),
