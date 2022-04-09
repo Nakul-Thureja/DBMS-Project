@@ -15,6 +15,7 @@ class AccountCreation2 : AppCompatActivity(), AdapterView.OnItemSelectedListener
     var loanType = arrayOf<String?>(
         "Home","Car","Personal"
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_creation2)

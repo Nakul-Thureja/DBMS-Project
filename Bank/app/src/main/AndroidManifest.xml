@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank">
         <activity
+            android:name=".AccountScreen1"
+            android:exported="false"
+            android:label="@string/title_activity_account_screen1"
+            android:theme="@style/Theme.Bank.NoActionBar" />
+        <activity
             android:name=".AccountCreation2"
             android:exported="false" />
         <activity

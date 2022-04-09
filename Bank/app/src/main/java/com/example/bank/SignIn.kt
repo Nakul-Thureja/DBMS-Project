@@ -1,5 +1,6 @@
 package com.example.bank
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,6 +21,10 @@ class SignIn : AppCompatActivity() {
             }
             else if(et_password.text.isEmpty()){
                 Toast.makeText(this, "please enter your Password", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val intent = Intent(this,AccountScreen1::class.java);
+                startActivity(intent)
             }
         }
     }
