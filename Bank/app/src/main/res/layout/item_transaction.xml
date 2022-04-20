@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="30dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp">
+
+
+            <TextView
+                android:id="@+id/TransNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Transaction Number: "
+                android:textSize="18sp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/AccountType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Transaction Date:"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/AccountBranch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Transaction Account:"
+                android:gravity=""
+                android:textSize="18sp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

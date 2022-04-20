@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank">
         <activity
+            android:name=".AvailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PassbookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BalanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SendMoneyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CardActivity"
+            android:exported="false" />
+        <activity
             android:name=".AccountScreen1"
             android:exported="false"
             android:label="@string/title_activity_account_screen1"
