@@ -14,11 +14,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val sign_in: Button = findViewById(R.id.btn_sign_in)
         val sign_up: Button = findViewById(R.id.btn_sign_up)
+        val btn_emp: Button = findViewById(R.id.btn_emp)
+
         sign_in.setOnClickListener {
             SignIn(it)
         }
         sign_up.setOnClickListener {
             SignUp(it)
+        }
+        btn_emp.setOnClickListener {
+            EmpPage(it)
         }
     }
 
@@ -29,6 +34,11 @@ class MainActivity : AppCompatActivity() {
 
     fun SignUp(view: View) {
         val intent = Intent(this,SignUp::class.java);
+        startActivity(intent)
+    }
+
+    fun EmpPage(view: View) {
+        val intent = Intent(this,EmployeeSigninActivity::class.java);
         startActivity(intent)
     }
 }
