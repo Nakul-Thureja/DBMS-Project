@@ -1,6 +1,7 @@
 package com.example.bank
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -12,6 +13,9 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bank.databinding.ActivityMain2Binding
+import java.sql.Connection
+import java.sql.ResultSet
+import java.sql.Statement
 
 class AccountScreen1 : AppCompatActivity() {
 
@@ -56,4 +60,6 @@ class AccountScreen1 : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_account_screen1)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }

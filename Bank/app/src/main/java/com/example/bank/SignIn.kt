@@ -44,7 +44,7 @@ class SignIn : AppCompatActivity() {
     }
 
 
-    fun GetTextSQL(id : String, pass : String) : Boolean {
+     fun GetTextSQL(id : String, pass : String) : Boolean {
         try{
             val connectionhelper : ConnectionHelper = ConnectionHelper()
             val connect : Connection = connectionhelper.connectionclass(id,pass)

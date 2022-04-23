@@ -2,6 +2,7 @@ package com.example.bank.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bank.*
 import com.example.bank.databinding.FragmentHomeBinding
+import java.sql.Connection
+import java.sql.ResultSet
+import java.sql.Statement
 
 class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
 
@@ -36,12 +40,39 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        val items = fetchData()
+        val items = GetTextSQL("1000000050","one","one")
 
         val adapter: AccountListAdapter = AccountListAdapter(items,this)
         recyclerView.adapter = adapter
 
         return root
+    }
+
+    private fun GetTextSQL(CID:String, id : String, pass : String) : ArrayList<String> {
+        val send = ArrayList<String>()
+        try{
+            val connectionhelper : ConnectionHelper = ConnectionHelper()
+            val connect : Connection = connectionhelper.connectionclass(id,pass)
+            if(connect!=null) {
+                val query : String = "Select AccNo from Customer,Accounts where Accounts.CID = $CID and Customer.CID = Accounts.CID"
+                val st : Statement = connect.createStatement()
+                val rs : ResultSet = st.executeQuery(query)
+                if (!rs.next()) {
+                    println("ResultSet in empty in Java")
+                }
+                else {
+                    do {
+                        val data = rs.getString(1);
+                        send.add(data)
+                    } while (rs.next()) }
+                return send
+
+            }
+        }
+        catch (e:Exception){
+            Log.e("Errorss", e.message!!)
+        }
+        return send
     }
 
     private fun fetchData(): ArrayList<String> {

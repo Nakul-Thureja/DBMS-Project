@@ -4,10 +4,11 @@ import android.annotation.SuppressLint;
 import android.os.StrictMode;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionHelper {
+public class ConnectionHelper  {
     Connection con;
     String uname, pass, ip, port, database;
     @SuppressLint("NewApi")
