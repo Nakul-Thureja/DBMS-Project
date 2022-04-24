@@ -1,16 +1,13 @@
 package com.example.bank
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.navigateUp
 import androidx.recyclerview.widget.RecyclerView
 
-class AccountListAdapter(private val items: ArrayList<String>,private val listener: OnItemClickListener):
+class AccountListAdapter(private val items: ArrayList<Accountdata>, private val listener: OnItemClickListener):
     RecyclerView.Adapter<AccountListAdapter.AccountViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountViewHolder {
         val view: View =
@@ -20,7 +17,9 @@ class AccountListAdapter(private val items: ArrayList<String>,private val listen
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.AccountNo.text = currentItem
+        holder.AccountNo.text = "Account No: " +currentItem.AccNo
+        holder.AccountType.text = "Account Type: "+currentItem.AccType
+        holder.AccountBranch.text = "Branch No: "+currentItem.BranchNo
     }
 
 
@@ -31,6 +30,8 @@ class AccountListAdapter(private val items: ArrayList<String>,private val listen
     inner class AccountViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
         var AccountNo: TextView = itemView.findViewById(R.id.AccountNo)
+        var AccountType:TextView= itemView.findViewById(R.id.AccountType)
+        var AccountBranch:TextView= itemView.findViewById(R.id.AccountBranch)
         var Card: Button = itemView.findViewById(R.id.btn_card)
         var Transfer: Button = itemView.findViewById(R.id.btn_transfer)
         var Balance: Button = itemView.findViewById(R.id.btn_balance)

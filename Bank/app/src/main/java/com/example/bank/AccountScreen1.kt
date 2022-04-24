@@ -18,11 +18,16 @@ import java.sql.ResultSet
 import java.sql.Statement
 
 class AccountScreen1 : AppCompatActivity() {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMain2Binding
 
+    var valued = String()
     override fun onCreate(savedInstanceState: Bundle?) {
+        val extras = intent.extras
+        if (extras != null) {
+            valued = extras.getString("key").toString()
+        }
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMain2Binding.inflate(layoutInflater)
@@ -59,6 +64,10 @@ class AccountScreen1 : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_account_screen1)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun getMyData(): String? {
+        return valued
     }
 
 

@@ -14,7 +14,7 @@ import java.sql.ResultSet
 import java.sql.Statement
 
 class SignIn : AppCompatActivity() {
-
+    var data = String()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -34,6 +34,7 @@ class SignIn : AppCompatActivity() {
                 val pass = et_password.text.toString()
                 if(GetTextSQL(name,pass)) {
                     val intent = Intent(this, AccountScreen1::class.java);
+                    intent.putExtra("key",data);
                     startActivity(intent)
                 }
                 else{
@@ -58,7 +59,8 @@ class SignIn : AppCompatActivity() {
                 }
                 else {
                     do {
-                        val data = rs.getString(1);
+                        data = rs.getString(1);
+
                         return true
                     } while (rs.next()) }
 

@@ -46,11 +46,11 @@
                 android:id="@+id/AccountType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Account Type: Savings"
-                android:textSize="18sp"
                 android:layout_marginHorizontal="10dp"
-                android:textColor="@color/black"/>
+                android:layout_marginTop="10dp"
+                android:text="Account Type: "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/AccountBranch"

@@ -6,8 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,6 +29,9 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val activity : AccountScreen1 = getActivity() as AccountScreen1
+        var myData : String = activity.getMyData().toString()
+
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
@@ -40,7 +41,7 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        val items = GetTextSQL("1000000050","one","one")
+        val items = GetTextSQL(myData,"one","one")
 
         val adapter: AccountListAdapter = AccountListAdapter(items,this)
         recyclerView.adapter = adapter
@@ -48,13 +49,14 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         return root
     }
 
-    private fun GetTextSQL(CID:String, id : String, pass : String) : ArrayList<String> {
-        val send = ArrayList<String>()
+
+    private fun GetTextSQL(CID:String, id : String, pass : String) : ArrayList<Accountdata> {
+        val send = ArrayList<Accountdata>()
         try{
             val connectionhelper : ConnectionHelper = ConnectionHelper()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select AccNo from Customer,Accounts where Accounts.CID = $CID and Customer.CID = Accounts.CID"
+                val query : String = "Select AccNo,AccType,BranchNo from Customer,Accounts where Accounts.CID = $CID and Customer.CID = Accounts.CID"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
@@ -62,8 +64,11 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
                 }
                 else {
                     do {
-                        val data = rs.getString(1);
-                        send.add(data)
+                        val data = rs.getString(1)
+                        val data2 = rs.getString(2)
+                        val data3 = rs.getString(3)
+                        val acc = Accountdata(data,data2,data3)
+                        send.add(acc)
                     } while (rs.next()) }
                 return send
 
@@ -75,13 +80,6 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         return send
     }
 
-    private fun fetchData(): ArrayList<String> {
-        val list = ArrayList<String>()
-        for(i in 0 until 100){
-            list.add("Account No: $i")
-        }
-        return list;
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
