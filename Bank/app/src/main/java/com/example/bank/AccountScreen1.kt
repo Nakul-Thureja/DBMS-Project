@@ -21,11 +21,13 @@ class AccountScreen1 : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMain2Binding
 
-    var valued = String()
+    var CID = String()
+    var Pass = String()
     override fun onCreate(savedInstanceState: Bundle?) {
         val extras = intent.extras
         if (extras != null) {
-            valued = extras.getString("key").toString()
+            CID = extras.getString("CID").toString()
+            Pass = extras.getString("password").toString()
         }
 
         super.onCreate(savedInstanceState)
@@ -66,8 +68,12 @@ class AccountScreen1 : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    fun getMyData(): String? {
-        return valued
+    fun getMyCID(): String? {
+        return CID
+    }
+
+    fun getMyPass() :String?{
+        return Pass
     }
 
 

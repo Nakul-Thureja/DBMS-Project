@@ -34,7 +34,8 @@ class SignIn : AppCompatActivity() {
                 val pass = et_password.text.toString()
                 if(GetTextSQL(name,pass)) {
                     val intent = Intent(this, AccountScreen1::class.java);
-                    intent.putExtra("key",data);
+                    intent.putExtra("CID",data);
+                    intent.putExtra("password",pass)
                     startActivity(intent)
                 }
                 else{

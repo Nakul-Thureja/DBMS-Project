@@ -30,7 +30,8 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         val activity : AccountScreen1 = getActivity() as AccountScreen1
-        var myData : String = activity.getMyData().toString()
+        val myCID = activity.getMyCID().toString()
+        val myPass = activity.getMyPass().toString()
 
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -41,7 +42,7 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        val items = GetTextSQL(myData,"one","one")
+        val items = GetTextSQL(myCID,myPass)
 
         val adapter: AccountListAdapter = AccountListAdapter(items,this)
         recyclerView.adapter = adapter
@@ -50,13 +51,13 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
     }
 
 
-    private fun GetTextSQL(CID:String, id : String, pass : String) : ArrayList<Accountdata> {
+    private fun GetTextSQL(id : String, pass : String) : ArrayList<Accountdata> {
         val send = ArrayList<Accountdata>()
         try{
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select AccNo,AccType,BranchNo from Customer,Accounts where Accounts.CID = $CID and Customer.CID = Accounts.CID"
+                val query : String = "Select AccNo,AccType,BranchNo from Customer,Accounts where Accounts.CID = $id and Customer.CID = Accounts.CID"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
