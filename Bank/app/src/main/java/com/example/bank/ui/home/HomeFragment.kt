@@ -53,7 +53,7 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
     private fun GetTextSQL(CID:String, id : String, pass : String) : ArrayList<Accountdata> {
         val send = ArrayList<Accountdata>()
         try{
-            val connectionhelper : ConnectionHelper = ConnectionHelper()
+            val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
                 val query : String = "Select AccNo,AccType,BranchNo from Customer,Accounts where Accounts.CID = $CID and Customer.CID = Accounts.CID"
