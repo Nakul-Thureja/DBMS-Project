@@ -12,11 +12,11 @@ public class ConnectionHelperUser  {
     Connection con;
     String uname, pass, ip, port, database;
     @SuppressLint("NewApi")
-    public Connection connectionclass(String CID, String pass){
+    public Connection connectionclass(String uname, String pass){
         ip = "192.168.56.125";
+        uname = "U"+uname;
+        pass = "U"+pass;
         database = "BankingV2";
-        uname = "users";
-        pass = "users";
         port = "1433";
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

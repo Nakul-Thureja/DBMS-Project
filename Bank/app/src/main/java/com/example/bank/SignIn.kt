@@ -74,6 +74,4 @@ class SignIn : AppCompatActivity() {
         return false
     }
 
-
-
 }
