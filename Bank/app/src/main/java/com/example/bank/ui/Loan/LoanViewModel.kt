@@ -1,4 +1,4 @@
-package com.example.bank.ui
+package com.example.bank.ui.Loan
 
 import androidx.lifecycle.ViewModel
 

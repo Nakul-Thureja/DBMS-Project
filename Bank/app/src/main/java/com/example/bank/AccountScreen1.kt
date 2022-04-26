@@ -1,5 +1,6 @@
 package com.example.bank
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -39,8 +40,9 @@ class AccountScreen1 : AppCompatActivity() {
         setSupportActionBar(binding.appBarAccountScreen1.toolbar)
 
         binding.appBarAccountScreen1.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val intent = Intent(this, SignUp3::class.java);
+            intent.putExtra("CID",CID)
+            startActivity(intent)
         }
 
         val drawerLayout: DrawerLayout = binding.drawerLayout

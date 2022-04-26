@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_account">
 
     <fragment
         android:id="@+id/nav_account"
-        android:name="com.example.bank.ui.AccountsFragment"
+        android:name="com.example.bank.ui.Accounts.AccountsFragment"
         android:label="Accounts"
-        tools:layout="@layout/accounts_fragment" />
+        tools:layout="@layout/fragment_accounts" />
 
     <fragment
         android:id="@+id/nav_loan"
-        android:name="com.example.bank.ui.LoanFragment"
+        android:name="com.example.bank.ui.Loan.LoanFragment"
         android:label="Loans"
-        tools:layout="@layout/loan_fragment" />
+        tools:layout="@layout/fragment_loan" />
 
     <fragment
         android:id="@+id/nav_contact_us"

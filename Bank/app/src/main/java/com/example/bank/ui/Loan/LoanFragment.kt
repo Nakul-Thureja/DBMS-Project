@@ -1,4 +1,4 @@
-package com.example.bank.ui
+package com.example.bank.ui.Loan
 
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
@@ -11,20 +11,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bank.*
-import com.example.bank.databinding.FragmentHomeBinding
-import com.example.bank.ui.home.HomeViewModel
+import com.example.bank.databinding.FragmentLoanBinding
 import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.Statement
 
-class AccountsFragment : Fragment(), AccountListAdapter.OnItemClickListener {
+class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: com.example.bank.databinding.FragmentLoanBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,20 +33,21 @@ class AccountsFragment : Fragment(), AccountListAdapter.OnItemClickListener {
         val myPass = activity.getMyPass().toString()
 
         val homeViewModel =
-            ViewModelProvider(this).get(AccountsViewModel::class.java)
+            ViewModelProvider(this).get(LoanViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        _binding = com.example.bank.databinding.FragmentLoanBinding.inflate(inflater, container, false)
+        val root= binding.root
 
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        val items = GetTextSQL(myCID,myPass)
+        val items = arrayListOf<String>("1")
 
-        val adapter: AccountListAdapter = AccountListAdapter(items,this)
+        val adapter: LoanListAdapter = LoanListAdapter(items,this)
         recyclerView.adapter = adapter
 
         return root
+
     }
 
 

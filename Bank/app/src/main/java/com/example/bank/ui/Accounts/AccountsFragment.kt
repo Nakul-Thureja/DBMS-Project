@@ -1,4 +1,4 @@
-package com.example.bank.ui
+package com.example.bank.ui.Accounts
 
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
@@ -11,15 +11,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bank.*
-import com.example.bank.databinding.FragmentHomeBinding
-import com.example.bank.databinding.LoanFragmentBinding
+import com.example.bank.databinding.FragmentAccountsBinding
 import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.Statement
 
-class LoanFragment : Fragment(), AccountListAdapter.OnItemClickListener {
+class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentAccountsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,9 +34,9 @@ class LoanFragment : Fragment(), AccountListAdapter.OnItemClickListener {
         val myPass = activity.getMyPass().toString()
 
         val homeViewModel =
-            ViewModelProvider(this).get(LoanViewModel::class.java)
+            ViewModelProvider(this).get(AccountsViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val recyclerView: RecyclerView = binding.recyclerView
@@ -45,7 +44,7 @@ class LoanFragment : Fragment(), AccountListAdapter.OnItemClickListener {
         recyclerView.layoutManager = LinearLayoutManager(activity);
         val items = GetTextSQL(myCID,myPass)
 
-        val adapter: LoanListAdapter = LoanListAdapter(items,this)
+        val adapter: AccountListAdapter = AccountListAdapter(items,this)
         recyclerView.adapter = adapter
 
         return root
