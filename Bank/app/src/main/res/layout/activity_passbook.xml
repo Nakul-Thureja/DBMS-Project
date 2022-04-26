@@ -18,6 +18,34 @@
         android:gravity="center"
         android:background="@color/design_default_color_primary"
         android:textColor="@color/white"/>
+    <Button
+        android:id="@+id/btn_Filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:backgroundTint="@null"
+        android:background="@color/purple_700"
+        android:layout_marginBottom="10dp"
+        android:text="Filter"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/et_date1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:id="@+id/et_date2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id = "@+id/recyclerView"
