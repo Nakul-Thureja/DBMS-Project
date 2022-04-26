@@ -117,6 +117,29 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/btn_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:backgroundTint="@null"
+                android:background="@color/purple_700"
+                android:gravity="left|center"
+                android:text="Select Date"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:autofillHints=""
+                android:layout_width="match_parent"
+                android:layout_height="25sp"
+                android:textSize="18sp"
+                android:background="@drawable/spinner_file"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                android:text="SELECT GENDER"/>
+
+            <Button
                 android:id="@+id/btn_next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
