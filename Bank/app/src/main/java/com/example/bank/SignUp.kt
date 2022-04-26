@@ -2,6 +2,7 @@ package com.example.bank
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.icu.text.Transliterator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
     var gender = arrayOf<String?>("Male", "Female",
         "Other")
     var date: String? = null
+    var custom_gender = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,7 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
         val et_email = findViewById<TextView>(R.id.et_email)
         val et_dob = findViewById<TextView>(R.id.et_dob)
         val btn_date = findViewById<Button>(R.id.btn_date)
-        btn_date.setOnClickListener { clickDatePicker(it) }
+        btn_date.setOnClickListener { clickDatePicker(it,et_dob,btn_date) }
 
         et_dob.visibility = View.INVISIBLE
 
@@ -54,6 +56,7 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
         intent.putExtra("Name",et_name)
         intent.putExtra("Phone",et_phone)
         intent.putExtra("Email",et_email)
+        intent.putExtra("Gender",custom_gender)
         if(date!=null) {
             intent.putExtra("Dob", date)
         }
@@ -65,10 +68,15 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
                                 view: View, position: Int,
                                 id: Long) {
 
-        Toast.makeText(applicationContext,
-            gender[position],
-            Toast.LENGTH_LONG)
-            .show()
+        if(gender[position] == "Male"){
+            custom_gender = "M"
+        }
+        else if(gender[position] == "Female"){
+            custom_gender = "F"
+        }
+        else{
+            custom_gender = "O"
+        }
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

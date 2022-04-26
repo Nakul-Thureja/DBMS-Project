@@ -22,6 +22,7 @@ class SignUp2 : AppCompatActivity() {
         val et_phone = intent.getStringExtra("Phone")
         val et_email = intent.getStringExtra("Email")
         val et_dob = intent.getStringExtra("Dob")
+        val et_gender = intent.getStringExtra("Gender")
 
         val et_address = findViewById<TextView>(R.id.et_address)
         val et_aadhar = findViewById<TextView>(R.id.et_aadhar)
@@ -35,7 +36,8 @@ class SignUp2 : AppCompatActivity() {
                 GetTextSQL(et_name!!, et_phone!!,et_email!!,et_dob!!,et_address.text.toString()
                     ,et_aadhar.text.toString()
                     ,et_pan.text.toString()
-                    ,et_password.text.toString())
+                    ,et_password.text.toString()
+                ,et_gender!!)
                 nextPage(it)
             }
         }
@@ -47,7 +49,7 @@ class SignUp2 : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun GetTextSQL(name : String,phone:String,email : String,dob:String,address:String,aadhar:String,pan:String,password:String) {
+    fun GetTextSQL(name : String,phone:String,email : String,dob:String,address:String,aadhar:String,pan:String,password:String, gender:String) {
         try{
             val connectionhelper : ConnectionHelper = ConnectionHelper()
             val connect : Connection = connectionhelper.connectionclass("random","random")
@@ -64,7 +66,7 @@ class SignUp2 : AppCompatActivity() {
                 println(counter)
                 val query: String =
                     "INSERT INTO Customer(CID,Pass,AadharNo,PanNo,Name,DOB,Address,PhoneNo,Email,Gender) VALUES" +
-                            "(1000000$counter,$password,$aadhar,$pan,'$name','$dob','$address',$phone,'$email','M') "
+                            "(1000000$counter,$password,$aadhar,$pan,'$name','$dob','$address',$phone,'$email','$gender') "
                 val st: Statement = connect.createStatement()
                 val rs: ResultSet? = st.executeQuery(query)
 
