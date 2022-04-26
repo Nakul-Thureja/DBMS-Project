@@ -6,16 +6,16 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.bank.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_account"
+        android:name="com.example.bank.ui.AccountsFragment"
+        android:label="Accounts"
+        tools:layout="@layout/accounts_fragment" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.bank.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_loan"
+        android:name="com.example.bank.ui.LoanFragment"
+        android:label="Loans"
+        tools:layout="@layout/loan_fragment" />
 
     <fragment
         android:id="@+id/nav_contact_us"

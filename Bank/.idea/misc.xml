@@ -12,7 +12,6 @@
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_employee_signin.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_main2.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_passbook.xml" value="0.264" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_in.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up2.xml" value="0.16666666666666666" />
@@ -47,14 +46,36 @@
         <entry key="..\:/Users/nakul/AndroidStudioProjects/Bank/app/src/main/res/layout/nav_header_account_screen1.xml" value="0.35678391959798994" />
         <entry key="..\:/Users/nakul/AndroidStudioProjects/Bank/app/src/main/res/menu/activity_main2_drawer.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/nakul/AndroidStudioProjects/Bank/app/src/main/res/menu/drawer_menu.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/drawable/ic_baseline_account_balance_24.xml" value="0.1775" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/drawable/ic_baseline_account_balance_wallet_24.xml" value="0.1775" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1775" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/accounts_fragment.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_account_creation1.xml" value="0.13994565217391305" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_account_creation2.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_avail.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_balance.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_employee.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_main2.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_manager.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_passbook.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_in.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up.xml" value="0.136" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up2.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up3.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/app_bar_account_screen1.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/blank_fragment.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/content_account_screen1.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/fragment_contactus.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/fragment_gallery.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/fragment_home.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/item_account.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/item_loan.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/item_transaction.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/loan_fragment.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/layout/nav_header_account_screen1.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/menu/account_screen1.xml" value="0.25" />
+        <entry key="..\:/Users/nakul/OneDrive/Desktop/DBMS-Project/Bank/app/src/main/res/menu/activity_main2_drawer.xml" value="0.25" />
       </map>
     </option>
   </component>

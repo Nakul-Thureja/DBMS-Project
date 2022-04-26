@@ -23,6 +23,7 @@ class AccountScreen1 : AppCompatActivity() {
 
     var CID = String()
     var Pass = String()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val extras = intent.extras
         if (extras != null) {
@@ -50,7 +51,7 @@ class AccountScreen1 : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_contact_us
+                R.id.nav_account, R.id.nav_loan, R.id.nav_contact_us
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
