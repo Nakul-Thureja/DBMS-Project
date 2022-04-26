@@ -98,24 +98,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="@color/purple_700"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                android:layout_marginTop="20dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_dob"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Date of Birth"
-                    android:inputType="date"
-                    android:textColor="@color/white"
-                    android:textColorHint="#7A8089"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
             <Button
                 android:id="@+id/btn_date"
                 android:layout_width="match_parent"
@@ -125,8 +107,21 @@
                 android:background="#BEBEBE"
                 android:gravity="left|center"
                 android:text="Select Date"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/et_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:backgroundTint="@null"
+                android:background="#BEBEBE"
+                android:gravity="left|center"
+                android:text="Select Date"
+                android:textSize="18sp"
+
+                />
 
             <Spinner
                 android:id="@+id/spinner"

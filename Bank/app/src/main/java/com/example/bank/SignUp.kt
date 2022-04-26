@@ -27,9 +27,11 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
         val et_name = findViewById<TextView>(R.id.et_name)
         val et_phone = findViewById<TextView>(R.id.et_phone)
         val et_email = findViewById<TextView>(R.id.et_email)
+        val et_dob = findViewById<TextView>(R.id.et_dob)
         val btn_date = findViewById<Button>(R.id.btn_date)
         btn_date.setOnClickListener { clickDatePicker(it) }
 
+        et_dob.visibility = View.INVISIBLE
 
         next.setOnClickListener {
             nextPage(it,et_name.text.toString(),et_phone.text.toString(),
@@ -72,15 +74,20 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
     override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
-    fun clickDatePicker(view: View) {
+    fun clickDatePicker(view: View,et_dob: TextView,btn_date: Button) {
         val myCalender = Calendar.getInstance()
         val year = myCalender.get(Calendar.YEAR)
         val month = myCalender.get(Calendar.MONTH)
         val day = myCalender.get(Calendar.DAY_OF_MONTH)
+
+
         val datePickerDialog = DatePickerDialog(
             this,
             DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 date = "$year-${monthOfYear+1}-$dayOfMonth"
+                et_dob.visibility = View.VISIBLE
+                et_dob.text = date
+                btn_date.visibility = View.INVISIBLE
             },
             year,
             month,
