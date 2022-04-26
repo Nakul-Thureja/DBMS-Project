@@ -18,13 +18,15 @@ class PassbookActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passbook)
-        val filter = findViewById<Button>(R.id.btn_Filter)
-
         val et_date1 = findViewById<TextView>(R.id.et_date1)
         val et_date2 = findViewById<TextView>(R.id.et_date2)
         et_date1.visibility = View.INVISIBLE
         et_date2.visibility = View.INVISIBLE
 
+        val filter = findViewById<Button>(R.id.btn_Filter)
+        filter.setOnClickListener {
+            clickDatePicker(it, et_date1 , et_date2  ,filter)
+        }
         val recyclerView : RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val items = fetchData()
@@ -51,18 +53,23 @@ class PassbookActivity : AppCompatActivity() {
             this,
             DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 date1 = "$year-${monthOfYear+1}-$dayOfMonth"
+                et_date1.visibility = View.VISIBLE
+                et_date1.text = "FROM - "+date1
+                btn_Filter.visibility = View.INVISIBLE
             },
             year,
             month,
             day
         )
         datePickerDialog1.datePicker.setMaxDate(Date().time)
-        datePickerDialog1.show()
 
         val datePickerDialog2 = DatePickerDialog(
             this,
             DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 date2 = "$year-${monthOfYear+1}-$dayOfMonth"
+                et_date2.visibility = View.VISIBLE
+                et_date2.text = "TO - "+date2
+                btn_Filter.visibility = View.INVISIBLE
             },
             year,
             month,
@@ -70,6 +77,7 @@ class PassbookActivity : AppCompatActivity() {
         )
         datePickerDialog2.datePicker.setMaxDate(Date().time)
         datePickerDialog2.show()
+        datePickerDialog1.show()
 
         et_date1.visibility = View.VISIBLE
         et_date2.visibility = View.VISIBLE
