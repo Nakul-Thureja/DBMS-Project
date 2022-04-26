@@ -33,23 +33,25 @@ class SignUp2 : AppCompatActivity() {
             if (et_password.text.toString() != et_re_password.text.toString()) {
                 Toast.makeText(this, "The passwords do not match", Toast.LENGTH_SHORT).show()
             } else {
-                GetTextSQL(et_name!!, et_phone!!,et_email!!,et_dob!!,et_address.text.toString()
+                val CID  = GetTextSQL(et_name!!, et_phone!!,et_email!!,et_dob!!,et_address.text.toString()
                     ,et_aadhar.text.toString()
                     ,et_pan.text.toString()
                     ,et_password.text.toString()
                 ,et_gender!!)
-                nextPage(it)
+                nextPage(it,CID)
             }
         }
     }
 
 
-    fun nextPage(it: View) {
+    fun nextPage(it: View,CID:String) {
         val intent = Intent(this,SignUp3::class.java)
+        intent.putExtra("CID",CID)
         startActivity(intent)
     }
 
-    fun GetTextSQL(name : String,phone:String,email : String,dob:String,address:String,aadhar:String,pan:String,password:String, gender:String) {
+    fun GetTextSQL(name : String,phone:String,email : String,dob:String,address:String,aadhar:String,pan:String,password:String, gender:String) : String{
+        var counter = 0;
         try{
             val connectionhelper : ConnectionHelper = ConnectionHelper()
             val connect : Connection = connectionhelper.connectionclass("random","random")
@@ -61,14 +63,14 @@ class SignUp2 : AppCompatActivity() {
                 while (rsinit.next()) {
                     count = rsinit.getString(1)
                 }
-                var counter = count.toInt()
+                counter = count.toInt()
                 counter++
                 println(counter)
                 val query: String =
                     "INSERT INTO Customer(CID,Pass,AadharNo,PanNo,Name,DOB,Address,PhoneNo,Email,Gender) VALUES" +
                             "(1000000$counter,$password,$aadhar,$pan,'$name','$dob','$address',$phone,'$email','$gender') "
                 val st: Statement = connect.createStatement()
-                val rs: ResultSet? = st.executeQuery(query)
+                val rs: Int = st.executeUpdate(query)
 
                 connect.close()
             }
@@ -76,5 +78,6 @@ class SignUp2 : AppCompatActivity() {
         catch (e:Exception){
             Log.e("Errorss", e.message!!)
         }
+        return "1000000$counter"
     }
 }
