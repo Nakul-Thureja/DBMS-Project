@@ -51,28 +51,51 @@ class SignIn : AppCompatActivity() {
             val connectionhelper : ConnectionHelper = ConnectionHelper()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select CID from Customer where CID = $id and Pass = $pass";
-                val st : Statement = connect.createStatement()
-                val rs : ResultSet = st.executeQuery(query)
+                val query: String = "Select CID from Customer where CID = $id and Pass = $pass";
+                val st: Statement = connect.createStatement()
+                val rs: ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
-                    println("ResultSet in empty in Java")
+                    println("ResultSet isss empty in Java")
                     return false
-                }
-                else {
+                } else {
                     do {
                         data = rs.getString(1);
-
+                        granter(connect, id)
                         return true
-                    } while (rs.next()) }
+                    } while (rs.next())
+                }
 
             }
             connect.close()
-
         }
         catch (e:Exception){
             Log.e("Errorss", e.message!!)
         }
         return false
     }
+
+    fun granter(connect : Connection,id:String){
+        if(connect!=null){
+            val query1 =
+                "Create or Alter View customer_view as Select * from Customer where CID = $id"
+            val st1: Statement = connect.createStatement()
+            val rs1: Int = st1.executeUpdate(query1)
+
+            val query2 =
+                "Create or Alter View accounts_view as Select * from Accounts where CID = $id"
+            val st2: Statement = connect.createStatement()
+            val rs2: Int = st2.executeUpdate(query2)
+
+            val query3 = "Grant Select on Customer_view to U$id"
+            val st3: Statement = connect.createStatement()
+            val rs3: Int = st3.executeUpdate(query3)
+
+            val query4 = "Grant Select on Accounts_view to U$id"
+            val st4: Statement = connect.createStatement()
+            val rs4: Int = st4.executeUpdate(query4)
+        }
+    }
+
+
 
 }

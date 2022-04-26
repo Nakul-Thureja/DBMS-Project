@@ -57,7 +57,7 @@ class HomeFragment : Fragment(),AccountListAdapter.OnItemClickListener {
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select AccNo,AccType,BranchNo from Customer,Accounts where Accounts.CID = $id and Customer.CID = Accounts.CID"
+                val query : String = "Select AccNo,AccType,BranchNo from Customer_view,Accounts_view where Accounts_view.CID = $id and Customer_view.CID = Accounts_view.CID"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
