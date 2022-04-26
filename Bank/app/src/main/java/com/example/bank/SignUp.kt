@@ -28,7 +28,7 @@ class SignUp : AppCompatActivity(), AdapterView.OnItemSelectedListener  {
         val et_phone = findViewById<TextView>(R.id.et_phone)
         val et_email = findViewById<TextView>(R.id.et_email)
         val btn_date = findViewById<Button>(R.id.btn_date)
-
+        btn_date.setOnClickListener { clickDatePicker(it) }
 
 
         next.setOnClickListener {

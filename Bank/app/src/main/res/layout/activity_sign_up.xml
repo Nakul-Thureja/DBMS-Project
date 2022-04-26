@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:backgroundTint="@null"
-                android:background="@color/purple_700"
+                android:background="#BEBEBE"
                 android:gravity="left|center"
                 android:text="Select Date"
                 android:textColor="@color/white"
