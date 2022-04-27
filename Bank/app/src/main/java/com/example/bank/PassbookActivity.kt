@@ -3,11 +3,15 @@ package com.example.bank
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.sql.Connection
+import java.sql.ResultSet
+import java.sql.Statement
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,6 +24,9 @@ class PassbookActivity : AppCompatActivity() {
         setContentView(R.layout.activity_passbook)
         val et_date1 = findViewById<TextView>(R.id.et_date1)
         val et_date2 = findViewById<TextView>(R.id.et_date2)
+        val CID = intent.getStringExtra("CID")
+        val acc_no = intent.getStringExtra("Acc")
+        val pass = intent.getStringExtra("pass")
         et_date1.visibility = View.INVISIBLE
         et_date2.visibility = View.INVISIBLE
 
@@ -29,17 +36,13 @@ class PassbookActivity : AppCompatActivity() {
         }
         val recyclerView : RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val items = fetchData()
+        val items = fetchData(CID!!,pass!!,acc_no!!)
         val adapter: PassbookAdapter = PassbookAdapter(items)
         recyclerView.adapter = adapter
     }
 
-    private fun fetchData(): ArrayList<String> {
-        val list = ArrayList<String>()
-        for(i in 0 until 100){
-            list.add("Transaction No: $i")
-        }
-        return list;
+    private fun fetchData(id : String, pass : String,acc_no:String): ArrayList<TransactionData> {
+        return GetTextSQL(id,pass,acc_no)
     }
 
     fun clickDatePicker(view: View, et_date1: TextView, et_date2: TextView, btn_Filter: Button) {
@@ -87,4 +90,37 @@ class PassbookActivity : AppCompatActivity() {
 
     }
 
+    fun GetTextSQL(id : String, pass : String,acc_no:String) : ArrayList<TransactionData> {
+        var data = ArrayList<TransactionData>()
+        try{
+            val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
+            val connect : Connection = connectionhelper.connectionclass(id,pass)
+            if(connect!=null) {
+                val query : String = "Select TNo,amount,DOT,TransactionType,SenderAccNo,ReceiverAccno from transactions_view where SenderAccNo = $acc_no or ReceiverAccNo = $acc_no"
+                val st : Statement = connect.createStatement()
+                val rs : ResultSet = st.executeQuery(query)
+                if (!rs.next()) {
+                    println("ResultSet in empty in Java")
+                }
+                else {
+                    do {
+                        var temp :TransactionData
+                        if(rs.getString(6) != null && rs.getString(6) != "0"){
+                             temp = TransactionData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6))
+
+                        }
+                        else{
+                            temp = TransactionData(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),"Self")
+
+                        }
+                        data.add(temp)
+                    } while (rs.next()) }
+                return data
+            }
+        }
+        catch (e:Exception){
+            Log.e("Errorss", e.message!!)
+        }
+        return data
+    }
 }

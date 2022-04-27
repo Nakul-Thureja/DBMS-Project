@@ -19,8 +19,9 @@ import java.sql.Statement
 class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
 
     private var _binding: FragmentAccountsBinding? = null
-    var myCID =""
+    var myCID = ""
     var myPass = ""
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -30,7 +31,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val activity : AccountScreen1 = getActivity() as AccountScreen1
+        val activity: AccountScreen1 = getActivity() as AccountScreen1
         myCID = activity.getMyCID().toString()
         myPass = activity.getMyPass().toString()
 
@@ -43,40 +44,40 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        items = GetTextSQL(myCID,myPass)
+        items = GetTextSQL(myCID, myPass)
 
-        val adapter: AccountListAdapter = AccountListAdapter(items,this)
+        val adapter: AccountListAdapter = AccountListAdapter(items, this)
         recyclerView.adapter = adapter
 
         return root
     }
 
 
-    private fun GetTextSQL(id : String, pass : String) : ArrayList<Accountdata> {
+    private fun GetTextSQL(id: String, pass: String): ArrayList<Accountdata> {
         val send = ArrayList<Accountdata>()
-        try{
-            val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
-            val connect : Connection = connectionhelper.connectionclass(id,pass)
-            if(connect!=null) {
-                val query : String = "Select AccNo,AccType,BranchNo from Customer_view,Accounts_view where Accounts_view.CID = $id and Customer_view.CID = Accounts_view.CID"
-                val st : Statement = connect.createStatement()
-                val rs : ResultSet = st.executeQuery(query)
+        try {
+            val connectionhelper: ConnectionHelperUser = ConnectionHelperUser()
+            val connect: Connection = connectionhelper.connectionclass(id, pass)
+            if (connect != null) {
+                val query: String =
+                    "Select AccNo,AccType,BranchNo from Customer_view,Accounts_view where Accounts_view.CID = $id and Customer_view.CID = Accounts_view.CID"
+                val st: Statement = connect.createStatement()
+                val rs: ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
                     println("ResultSet in empty in Java")
-                }
-                else {
+                } else {
                     do {
                         val data = rs.getString(1)
                         val data2 = rs.getString(2)
                         val data3 = rs.getString(3)
-                        val acc = Accountdata(data,data2,data3)
+                        val acc = Accountdata(data, data2, data3)
                         send.add(acc)
-                    } while (rs.next()) }
+                    } while (rs.next())
+                }
                 return send
 
             }
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
             Log.e("Errorss", e.message!!)
         }
         return send
@@ -88,46 +89,46 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
         _binding = null
     }
 
-    override fun onItemClick(pos: Int,option : Int) {
-        if(option == 1){
+    override fun onItemClick(pos: Int, option: Int) {
+        if (option == 1) {
             val intent = Intent(activity, CardActivity::class.java);
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID",myCID)
-            intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",items[pos].AccNo)
+            intent.putExtra("CardNo", pos)
+            intent.putExtra("CID", myCID)
+            intent.putExtra("pass", myPass)
+            intent.putExtra("Acc", items[pos].AccNo)
             startActivity(intent)
-        }
-        else if(option==2){
+        } else if (option == 2) {
             val intent = Intent(activity, SendMoneyActivity::class.java);
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID",myCID)
-            intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",items[pos].AccNo)
+            intent.putExtra("CardNo", pos)
+            intent.putExtra("CID", myCID)
+            intent.putExtra("pass", myPass)
+            intent.putExtra("Acc", items[pos].AccNo)
             startActivity(intent)
-        }
-        else if(option==3){
+        } else if (option == 3) {
             val intent = Intent(activity, BalanceActivity::class.java);
-            intent.putExtra("AccNo",pos)
-            intent.putExtra("CID",myCID)
-            intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",items[pos].AccNo.toString())
+            intent.putExtra("AccNo", pos)
+            intent.putExtra("CID", myCID)
+            intent.putExtra("pass", myPass)
+            intent.putExtra("Acc", items[pos].AccNo.toString())
             startActivity(intent)
-        }
-        else if(option==4){
+        } else if (option == 4) {
             val intent = Intent(activity, AvailActivity::class.java);
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID",myCID)
-            intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",items[pos].AccNo)
+            intent.putExtra("CardNo", pos)
+            intent.putExtra("CID", myCID)
+            intent.putExtra("pass", myPass)
+            intent.putExtra("Acc", items[pos].AccNo.toString())
             startActivity(intent)
-        }
-        else if(option==5){
+        } else if (option == 5) {
             val intent = Intent(activity, PassbookActivity::class.java);
-            intent.putExtra("AccNo",pos)
-            intent.putExtra("CID",myCID)
-            intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",items[pos].AccNo)
+            intent.putExtra("AccNo", pos)
+            intent.putExtra("CID", myCID)
+            intent.putExtra("pass", myPass)
+            intent.putExtra("Acc", items[pos].AccNo)
             startActivity(intent)
         }
+
+
     }
+
+
 }

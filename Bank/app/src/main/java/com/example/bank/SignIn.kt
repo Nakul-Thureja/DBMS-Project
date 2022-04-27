@@ -100,6 +100,10 @@ class SignIn : AppCompatActivity() {
             val st02: Statement = connect.createStatement()
             val rs02: Int = st02.executeUpdate(query02)
 
+            val query12 = "Create or Alter View transactions_view as Select * from Transactions where SenderAccNo = $acc_no or ReceiverAccNo = $acc_no"
+            val st12: Statement = connect.createStatement()
+            val rs12: Int = st12.executeUpdate(query12)
+
             val query3 = "Grant Select on Customer_view to U$id"
             val st3: Statement = connect.createStatement()
             val rs3: Int = st3.executeUpdate(query3)
@@ -111,6 +115,10 @@ class SignIn : AppCompatActivity() {
             val query5 = "Grant Select on Cards_view to U$id"
             val st5: Statement = connect.createStatement()
             val rs5: Int = st5.executeUpdate(query5)
+
+            val query6 = "Grant Select on transactions_view to U$id"
+            val st6: Statement = connect.createStatement()
+            val rs6 : Int = st6.executeUpdate(query6)
         }
     }
 

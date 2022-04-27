@@ -32,7 +32,17 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/AccountType"
+                android:id="@+id/TransAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Transaction Amount: "
+                android:textSize="18sp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/TransDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -42,15 +52,38 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/AccountBranch"
+                android:id="@+id/TransMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Transaction Account:"
+                android:text="Transaction Mode:"
                 android:gravity=""
                 android:textSize="18sp"
                 android:layout_marginHorizontal="10dp"
                 android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/TransSendAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sender Account:"
+                android:gravity=""
+                android:textSize="18sp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/TransReceiveAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Receiver Account:"
+                android:gravity=""
+                android:textSize="18sp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
+
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
