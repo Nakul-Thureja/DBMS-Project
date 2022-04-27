@@ -8,8 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bank.databinding.FragmentContactusBinding
-import com.example.bank.databinding.FragmentGalleryBinding
-import com.example.bank.ui.gallery.GalleryViewModel
 
 class ContactusFragment : Fragment() {
 

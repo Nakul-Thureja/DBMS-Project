@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.bank.R
 import com.example.bank.databinding.FragmentMloanBinding
-import com.example.bank.databinding.FragmentSlideshowBinding
-import com.example.bank.ui.slideshow.SlideshowViewModel
 
 class MLoanFragment : Fragment() {
 
@@ -26,7 +24,7 @@ class MLoanFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+            ViewModelProvider(this).get(MLoanViewModel::class.java)
 
         _binding =FragmentMloanBinding.inflate(inflater, container, false)
         val root: View = binding.root

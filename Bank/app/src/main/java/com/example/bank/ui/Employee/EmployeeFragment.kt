@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.example.bank.R
 import com.example.bank.databinding.FragmentEmployeeBinding
 import com.example.bank.databinding.FragmentMaccountsBinding
-import com.example.bank.ui.slideshow.SlideshowViewModel
 
 class EmployeeFragment : Fragment() {
 
@@ -25,7 +24,7 @@ class EmployeeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+            ViewModelProvider(this).get(EmployeeViewModel::class.java)
 
         _binding = FragmentEmployeeBinding.inflate(inflater, container, false)
         val root: View = binding.root
