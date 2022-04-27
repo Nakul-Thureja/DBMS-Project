@@ -13,4 +13,5 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_contactus">Contact Us</string>
     <string name="title_activity_manager_page">ManagerPageActivity</string>
+    <string name="title_activity_main4">Main4Activity</string>
 </resources>

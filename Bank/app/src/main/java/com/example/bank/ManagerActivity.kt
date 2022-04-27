@@ -11,7 +11,7 @@ class ManagerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_manager)
         val btn_log_in = findViewById<Button>(R.id.btn_log_in)
         btn_log_in.setOnClickListener {
-            val intent = Intent(this, ManagerPageActivity::class.java);
+            val intent = Intent(this, Main4Activity::class.java);
             //add data
             startActivity(intent)
         }
