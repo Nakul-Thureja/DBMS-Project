@@ -14,18 +14,19 @@ class BalanceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_balance)
         val balance : TextView = findViewById(R.id.balance)
         val CID = intent.getStringExtra("CID")
+        val acc_no = intent.getStringExtra("Acc")
         val pass = intent.getStringExtra("pass")
-        balance.text = "You have Rs."+ GetTextSQL(CID!!,pass!!)+" in your Account"
+        balance.text = "You have Rs."+ GetTextSQL(CID!!,pass!!, acc_no!!)+" in your Account"
     }
 
 
-    fun GetTextSQL(id : String, pass : String) : String {
+    fun GetTextSQL(id : String, pass : String,acc_no:String) : String {
         var data = ""
         try{
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select Balance from Customer_view,Accounts_view where Accounts_view.CID = $id and Customer_view.CID = Accounts_view.CID"
+                val query : String = "Select Balance from Accounts_view where AccNo = $acc_no"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {

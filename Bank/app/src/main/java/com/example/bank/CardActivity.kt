@@ -138,4 +138,6 @@ class CardActivity : AppCompatActivity() {
         Toast.makeText(this, "Your Card was Created. Reload to check again", Toast.LENGTH_SHORT).show()
         this.finish()
     }
+
+
 }

@@ -24,7 +24,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    var item_1 = ""
+    var items = ArrayList<Accountdata>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,8 +43,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        val items = GetTextSQL(myCID,myPass)
-        item_1 = items[0].AccNo
+        items = GetTextSQL(myCID,myPass)
 
         val adapter: AccountListAdapter = AccountListAdapter(items,this)
         recyclerView.adapter = adapter
@@ -95,7 +94,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
             intent.putExtra("CardNo",pos)
             intent.putExtra("CID",myCID)
             intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",item_1)
+            intent.putExtra("Acc",items[pos].AccNo)
             startActivity(intent)
         }
         else if(option==2){
@@ -103,7 +102,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
             intent.putExtra("CardNo",pos)
             intent.putExtra("CID",myCID)
             intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",item_1)
+            intent.putExtra("Acc",items[pos].AccNo)
             startActivity(intent)
         }
         else if(option==3){
@@ -111,7 +110,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
             intent.putExtra("AccNo",pos)
             intent.putExtra("CID",myCID)
             intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",item_1)
+            intent.putExtra("Acc",items[pos].AccNo.toString())
             startActivity(intent)
         }
         else if(option==4){
@@ -119,7 +118,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
             intent.putExtra("CardNo",pos)
             intent.putExtra("CID",myCID)
             intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",item_1)
+            intent.putExtra("Acc",items[pos].AccNo)
             startActivity(intent)
         }
         else if(option==5){
@@ -127,7 +126,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
             intent.putExtra("AccNo",pos)
             intent.putExtra("CID",myCID)
             intent.putExtra("pass",myPass)
-            intent.putExtra("Acc",item_1)
+            intent.putExtra("Acc",items[pos].AccNo)
             startActivity(intent)
         }
     }
