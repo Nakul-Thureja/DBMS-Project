@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class LoanListAdapter(private val items: ArrayList<String>, private val listener: OnItemClickListener):
+class LoanListAdapter(private val items: ArrayList<LoanAccountdata>, private val listener: OnItemClickListener):
 
     RecyclerView.Adapter<LoanListAdapter.LoanViewHolder>() {
 
@@ -19,7 +19,11 @@ class LoanListAdapter(private val items: ArrayList<String>, private val listener
 
     override fun onBindViewHolder(holder: LoanViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.LoanNo.text = "Account No: " + currentItem
+        holder.LoanNo.text = "Account No: " + currentItem.number
+        holder.LoanType.text = "Loan Type: "+currentItem.type
+        holder.LoanBranch.text = "Branch No: "+currentItem.branchnum
+        holder.DOC.text = "Date of Creation: "+currentItem.date
+        holder.Duration.text = "Duration: "+currentItem.duration
     }
 
 

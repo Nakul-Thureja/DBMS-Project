@@ -17,6 +17,7 @@ import com.example.bank.databinding.ActivityMain2Binding
 import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.Statement
+import android.view.MenuItem as MenuItem
 
 class AccountScreen1 : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -24,6 +25,13 @@ class AccountScreen1 : AppCompatActivity() {
 
     var CID = String()
     var Pass = String()
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.action_settings) {
+            this.finish()
+        }
+        return false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val extras = intent.extras
@@ -116,7 +124,9 @@ class AccountScreen1 : AppCompatActivity() {
                     "Create or Alter View transactions_view as Select * from Transactions where SenderAccNo = $acc_no or ReceiverAccNo = $acc_no"
                 val st12: Statement = connect.createStatement()
                 val rs12: Int = st12.executeUpdate(query12)
-
+                val query22 = "Create or Alter View loan_view as Select * from Loan where CID = $id "
+                val st22: Statement = connect.createStatement()
+                val rs22: Int = st12.executeUpdate(query22)
                 val query3 = "Grant Select on Customer_view to U$id"
                 val st3: Statement = connect.createStatement()
                 val rs3: Int = st3.executeUpdate(query3)
@@ -132,6 +142,9 @@ class AccountScreen1 : AppCompatActivity() {
                 val query6 = "Grant Select on transactions_view to U$id"
                 val st6: Statement = connect.createStatement()
                 val rs6: Int = st6.executeUpdate(query6)
+                val query7 = "Grant Select on loan_view to U$id"
+                val st7: Statement = connect.createStatement()
+                val rs7 : Int = st7.executeUpdate(query7)
             }
         } catch (e: Exception) {
             Log.e("Errorss", e.message!!)

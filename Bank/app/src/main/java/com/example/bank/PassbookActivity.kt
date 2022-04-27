@@ -104,7 +104,7 @@ class PassbookActivity : AppCompatActivity() {
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select TNo,amount,DOT,TransactionType,SenderAccNo,ReceiverAccno from transactions_view where SenderAccNo = $acc_no or ReceiverAccNo = $acc_no"
+                val query : String = "Select TNo,amount,DOT,TransactionType,SenderAccNo,ReceiverAccno from transactions_view where SenderAccNo = $acc_no or ReceiverAccNo = $acc_no ORDER BY DOT DESC"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
@@ -139,7 +139,7 @@ class PassbookActivity : AppCompatActivity() {
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select TNo,amount,DOT,TransactionType,SenderAccNo,ReceiverAccno from transactions_view where (SenderAccNo = $acc_no or ReceiverAccNo = $acc_no) and (DOT >= '$datefrom' and DOT <= '$dateto')"
+                val query : String = "Select TNo,amount,DOT,TransactionType,SenderAccNo,ReceiverAccno from transactions_view where (SenderAccNo = $acc_no or ReceiverAccNo = $acc_no) and (DOT >= '$datefrom' and DOT <= '$dateto') ORDER BY DOT DESC"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
