@@ -69,6 +69,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/purple_700"
                 android:textSize="18sp"
+                android:text="Issue New Card"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

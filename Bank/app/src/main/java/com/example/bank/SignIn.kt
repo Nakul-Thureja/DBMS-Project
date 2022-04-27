@@ -76,15 +76,29 @@ class SignIn : AppCompatActivity() {
 
     fun granter(connect : Connection,id:String){
         if(connect!=null){
-            val query1 =
-                "Create or Alter View customer_view as Select * from Customer where CID = $id"
+            val query1 = "Create or Alter View customer_view as Select * from Customer where CID = $id"
             val st1: Statement = connect.createStatement()
             val rs1: Int = st1.executeUpdate(query1)
 
-            val query2 =
-                "Create or Alter View accounts_view as Select * from Accounts where CID = $id"
+            val query2 = "Create or Alter View accounts_view as Select * from Accounts where CID = $id"
             val st2: Statement = connect.createStatement()
             val rs2: Int = st2.executeUpdate(query2)
+
+           var acc_no = ""
+            val query0 = "Select AccNo from accounts_view"
+            val st0 : Statement = connect.createStatement()
+            val rs0: ResultSet = st0.executeQuery(query0)
+            if (!rs0.next()) {
+                println("ResultSet in empty in Java")
+            }
+            else {
+                do {
+                    acc_no = rs0.getString(1)
+                } while (rs0.next()) }
+
+            val query02 = "Create or Alter View cards_view as Select * from Cards where AccNo = $acc_no"
+            val st02: Statement = connect.createStatement()
+            val rs02: Int = st02.executeUpdate(query02)
 
             val query3 = "Grant Select on Customer_view to U$id"
             val st3: Statement = connect.createStatement()
@@ -93,6 +107,10 @@ class SignIn : AppCompatActivity() {
             val query4 = "Grant Select on Accounts_view to U$id"
             val st4: Statement = connect.createStatement()
             val rs4: Int = st4.executeUpdate(query4)
+
+            val query5 = "Grant Select on Cards_view to U$id"
+            val st5: Statement = connect.createStatement()
+            val rs5: Int = st5.executeUpdate(query5)
         }
     }
 

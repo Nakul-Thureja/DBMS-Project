@@ -19,19 +19,20 @@ import java.sql.Statement
 class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
 
     private var _binding: FragmentAccountsBinding? = null
-
+    var myCID =""
+    var myPass = ""
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    var item_1 = ""
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val activity : AccountScreen1 = getActivity() as AccountScreen1
-        val myCID = activity.getMyCID().toString()
-        val myPass = activity.getMyPass().toString()
+        myCID = activity.getMyCID().toString()
+        myPass = activity.getMyPass().toString()
 
         val homeViewModel =
             ViewModelProvider(this).get(AccountsViewModel::class.java)
@@ -43,6 +44,7 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
         val items = GetTextSQL(myCID,myPass)
+        item_1 = items[0].AccNo
 
         val adapter: AccountListAdapter = AccountListAdapter(items,this)
         recyclerView.adapter = adapter
@@ -91,26 +93,41 @@ class AccountsFragment : Fragment() , AccountListAdapter.OnItemClickListener {
         if(option == 1){
             val intent = Intent(activity, CardActivity::class.java);
             intent.putExtra("CardNo",pos)
+            intent.putExtra("CID",myCID)
+            intent.putExtra("pass",myPass)
+            intent.putExtra("Acc",item_1)
             startActivity(intent)
         }
         else if(option==2){
             val intent = Intent(activity, SendMoneyActivity::class.java);
             intent.putExtra("CardNo",pos)
+            intent.putExtra("CID",myCID)
+            intent.putExtra("pass",myPass)
+            intent.putExtra("Acc",item_1)
             startActivity(intent)
         }
         else if(option==3){
             val intent = Intent(activity, BalanceActivity::class.java);
             intent.putExtra("AccNo",pos)
+            intent.putExtra("CID",myCID)
+            intent.putExtra("pass",myPass)
+            intent.putExtra("Acc",item_1)
             startActivity(intent)
         }
         else if(option==4){
             val intent = Intent(activity, AvailActivity::class.java);
             intent.putExtra("CardNo",pos)
+            intent.putExtra("CID",myCID)
+            intent.putExtra("pass",myPass)
+            intent.putExtra("Acc",item_1)
             startActivity(intent)
         }
         else if(option==5){
             val intent = Intent(activity, PassbookActivity::class.java);
             intent.putExtra("AccNo",pos)
+            intent.putExtra("CID",myCID)
+            intent.putExtra("pass",myPass)
+            intent.putExtra("Acc",item_1)
             startActivity(intent)
         }
     }
