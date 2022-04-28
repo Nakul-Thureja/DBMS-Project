@@ -1,4 +1,4 @@
--- Query to print the maximum salary of employee branch wise.
+---- Query to print the maximum salary of employee branch wise.
 select B.BranchNo,Max(E.salary) as MaxSalary from Branch B,Employee E,Works W 
 where W.BranchNo = B.BranchNo and E.EmpID = W.EmpID
 group by B.BranchNo;

@@ -43,6 +43,16 @@
                 android:textColor="@color/black"/>
 
             <TextView
+                android:id="@+id/LoanStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Loan Status: "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/LoanType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,17 +132,6 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 >
-
-                <Button
-                    android:id="@+id/btn_passbook"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/purple_700"
-                    android:textColor="@color/white"
-                    android:text="Passbook"
-                    android:layout_marginHorizontal="10dp"
-                    />
 
 
             </LinearLayout>

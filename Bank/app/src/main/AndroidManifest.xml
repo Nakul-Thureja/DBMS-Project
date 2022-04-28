@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bank" >
+    package="com.example.bank">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,18 +12,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Bank" >
+        android:theme="@style/Theme.Bank">
+
+        <activity
+            android:name=".LoanBalanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoanAvailActivity"
+            android:exported="false" />
         <activity
             android:name=".Main4Activity"
             android:exported="false"
             android:label="@string/title_activity_main4"
             android:theme="@style/Theme.Bank.NoActionBar" />
-        <activity
-            android:name=".ManagerPageActivity"
-            android:exported="false"
-            android:label="@string/title_activity_manager_page"
-            android:theme="@style/Theme.Bank.NoActionBar" />
-        <activity
+                <activity
             android:name=".EmployeeActivity"
             android:exported="false" />
         <activity
@@ -65,6 +67,15 @@
             android:name=".SignUp2"
             android:exported="false" />
         <activity
+            android:name=".MBalanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MPassbookActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUp"
             android:exported="false" />
         <activity
@@ -72,7 +83,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

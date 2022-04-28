@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Branch ID"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:hint="Employee ID"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:hint="Password"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 

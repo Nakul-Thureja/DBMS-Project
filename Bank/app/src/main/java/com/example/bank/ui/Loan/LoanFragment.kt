@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bank.*
@@ -30,8 +31,8 @@ class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         val activity : AccountScreen1 = getActivity() as AccountScreen1
-        val myCID = activity.getMyCID().toString()
-        val myPass = activity.getMyPass().toString()
+        myCID = activity.getMyCID().toString()
+        myPass = activity.getMyPass().toString()
 
         val homeViewModel =
             ViewModelProvider(this).get(LoanViewModel::class.java)
@@ -58,7 +59,7 @@ class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select LoanID,LoanType,BranchNo,DOC,Duration from Customer_view,Loan_view where Loan_view.CID = $id and Customer_view.CID = Loan_view.CID"
+                val query : String = "Select LoanID,LoanType,BranchNo,DOC,Duration,Status from Customer_view,Loan_view where Loan_view.CID = $id and Customer_view.CID = Loan_view.CID"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
@@ -71,7 +72,8 @@ class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
                         val data3 = rs.getString(3)
                         val data4 = rs.getString(4)
                         val data5 = rs.getString(5)
-                        val acc = LoanAccountdata(data,data2,data3,data4,data5)
+                        val data6 = rs.getString(6)
+                        val acc = LoanAccountdata(data,data2,data3,data4,data5,data6)
                         send.add(acc)
                     } while (rs.next()) }
                 return send
@@ -91,24 +93,21 @@ class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(pos: Int,option : Int) {
+        if(option==-1){
+            Toast.makeText(activity,"Your Loan is not approved yet", Toast.LENGTH_SHORT).show()
+        }
         if(option == 1){
-            val intent = Intent(activity, CardActivity::class.java);
+            //repay
+            val intent = Intent(activity, LoanAvailActivity::class.java);
             intent.putExtra("CardNo",pos)
             intent.putExtra("CID", myCID)
             intent.putExtra("pass", myPass)
             intent.putExtra("Acc", items[pos].number)
             startActivity(intent)
         }
+
         else if(option==2){
-            val intent = Intent(activity, SendMoneyActivity::class.java);
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID", myCID)
-            intent.putExtra("pass", myPass)
-            intent.putExtra("Acc", items[pos].number)
-            startActivity(intent)
-        }
-        else if(option==3){
-            val intent = Intent(activity, BalanceActivity::class.java);
+            val intent = Intent(activity, LoanBalanceActivity::class.java);
             intent.putExtra("AccNo",pos)
             intent.putExtra("CardNo",pos)
             intent.putExtra("CID", myCID)
@@ -116,23 +115,6 @@ class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
             intent.putExtra("Acc", items[pos].number)
             startActivity(intent)
         }
-        else if(option==4){
-            val intent = Intent(activity, AvailActivity::class.java);
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID", myCID)
-            intent.putExtra("pass", myPass)
-            intent.putExtra("Acc", items[pos].number)
-            startActivity(intent)
-        }
-        else if(option==5){
-            val intent = Intent(activity, PassbookActivity::class.java);
-            intent.putExtra("AccNo",pos)
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID", myCID)
-            intent.putExtra("pass", myPass)
-            intent.putExtra("Acc", items[pos].number)
-            startActivity(intent)
-        }
+        
     }
 }

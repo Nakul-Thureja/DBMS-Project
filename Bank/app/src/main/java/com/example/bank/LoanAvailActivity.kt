@@ -10,21 +10,21 @@ import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.Statement
 
-class AvailActivity : AppCompatActivity() {
+class LoanAvailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_avail)
+        setContentView(R.layout.activity_loan_avail)
         val CID = intent.getStringExtra("CID")
         val pass = intent.getStringExtra("pass")
         val acc_no = intent.getStringExtra("Acc")
-        val bt : Button = findViewById(R.id.btn_avail)
-        val et_amount : TextView = findViewById(R.id.et_amt)
+        val bt : Button = findViewById(R.id.btn_repay)
+        val et_amount : TextView = findViewById(R.id.et_lona_amount)
         bt.setOnClickListener {
             val amount = et_amount.text.toString()
             var amount2 = GetTextSQL(CID!!,pass!!,amount,acc_no!!)
             amount2 -= amount.toInt()
             if(amount2<0){
-                Toast.makeText(this, "Can't deduct more amount than balance", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Can't deduct more amount than balance in account", Toast.LENGTH_SHORT).show()
             }
             else {
                 updateBalance(CID!!, pass!!, amount2, acc_no,amount)
@@ -34,12 +34,11 @@ class AvailActivity : AppCompatActivity() {
 
     fun GetTextSQL(id : String, pass : String,amount:String,acc_no:String) :Int{
         var data = ""
-    println("hello")
         try {
             val connectionhelper: ConnectionHelperUser = ConnectionHelperUser()
             val connect: Connection = connectionhelper.connectionclass(id, pass)
             if (connect != null) {
-                val query0: String = "Select Balance from Accounts_view where AccNo = $acc_no"
+                val query0: String = "Select RemainingAmount from Loan_view where LoanID = $acc_no"
                 val st0: Statement = connect.createStatement()
                 val rs0: ResultSet = st0.executeQuery(query0)
                 if (!rs0.next()) {
@@ -86,23 +85,17 @@ class AvailActivity : AppCompatActivity() {
                     counter++
 
                     val query: String =
-                        "Update Accounts_view set Balance = $amount where AccNo = $acc_no"
+                        "Update loan_view set RemainingAmount = $amount where LoanID = $acc_no"
                     val st: Statement = connect.createStatement()
                     val rs: Int = st.executeUpdate(query)
-
-                    val query1: String =
-                        "INSERT INTO Transactions (Tno,TransactionType,SenderAccNo,Amount,DOT,ReceiverAccNo) " +
-                                "VALUES (10000000$counter,'Net-Banking',$acc_no,$amountcut,'$today','')"
-                    val st1: Statement = connect.createStatement()
-                    val rs1: Int = st1.executeUpdate(query1)
                 }
             }
         } catch (e: Exception) {
             Log.e("Errorss", e.message!!)
         }
-        Toast.makeText(this, "The Amount was deducted. Your new balance is $amount", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "The loan amount was repaid. Now remaining amount is $amount", Toast.LENGTH_SHORT).show()
         this.finish()
 
     }
 
-    }
+}

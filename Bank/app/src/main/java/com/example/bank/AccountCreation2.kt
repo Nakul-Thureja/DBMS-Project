@@ -11,12 +11,9 @@ import java.sql.ResultSet
 import java.sql.Statement
 
 class AccountCreation2 : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-    var branches = arrayOf<String?>("1 - Ap #703-4893 Nunc Rd.",
-        "2 - P.O. Box 645, 9873 Lacus. St.",
-        "3 - 198-8757 Faucibus. Ave",
-        "4 - Ap #692-5594 Duis Ave",
-        "5 - 3140 Porttitor Rd.")
-
+    private var branchd = getBranches()
+    var i =0;
+    var branches = Array<String>(branchd.size,{i-> "0"})
     var  branch_num = 0
     var  loan_type = ""
 
@@ -35,6 +32,10 @@ class AccountCreation2 : AppCompatActivity(), AdapterView.OnItemSelectedListener
         val amount = findViewById<TextView>(R.id.et_amount)
         val duration = findViewById<TextView>(R.id.et_duration)
         val nominee = findViewById<TextView>(R.id.et_nominee)
+        do {
+            branches[i] = branchd[i].BranchNo + " - " + branchd[i].Address
+            i++
+        } while (i<branchd.size)
 
         spinner.onItemSelectedListener = this
 
@@ -110,6 +111,31 @@ class AccountCreation2 : AppCompatActivity(), AdapterView.OnItemSelectedListener
         catch (e:Exception){
             Log.e("Errorss", e.message!!)
         }
+    }
+
+    fun getBranches() :ArrayList<BranchData>{
+        var branch = ArrayList<BranchData>()
+        try {
+            val connectionhelper: ConnectionHelper = ConnectionHelper()
+            val connect: Connection = connectionhelper.connectionclass("random", "random")
+            if (connect != null) {
+                val query0: String = "SELECT BranchNo,Address FROM Branch"
+                val st0: Statement = connect.createStatement()
+                val rs0: ResultSet = st0.executeQuery(query0)
+                if (!rs0.next()) {
+                    println("ResultSet isss empty in Java")
+                } else {
+                    do {
+                        val branch1 = rs0.getString(1)
+                        val branch2 = rs0.getString(2)
+                        branch.add(BranchData(branch1,branch2))
+                    } while (rs0.next())
+                }
+            }
+        }catch (e:Exception){
+            Log.e("Errorss", e.message!!)
+        }
+        return branch
     }
 
 

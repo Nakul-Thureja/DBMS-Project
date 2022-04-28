@@ -16,7 +16,6 @@ public class ConnectionHelperManager  {
         ip = "192.168.56.125";
         database = "BankingV2";
         uname = "M"+uname;
-        pass = "M"+pass;
         port = "1433";
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);

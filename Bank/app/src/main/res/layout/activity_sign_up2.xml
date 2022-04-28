@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Address"
                     android:inputType="text"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Aadhar Number"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Pan Number"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Re Enter Password"
                     android:inputType="textPassword"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textColorHint="#7A8089"
                     />
 

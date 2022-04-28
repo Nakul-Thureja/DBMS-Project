@@ -13,25 +13,25 @@ import java.sql.ResultSet
 import java.sql.Statement
 
 
-class CardActivity : AppCompatActivity() {
+class MCardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.bank.R.layout.activity_card)
-        val CID = intent.getStringExtra("CID")
+        val ID = intent.getStringExtra("ID")
         val pass = intent.getStringExtra("pass")
         val acc_no = intent.getStringExtra("Acc")
         val cardNo: TextView = findViewById(com.example.bank.R.id.cardNo)
         val validity: TextView = findViewById(com.example.bank.R.id.Validity)
-        val card_info: ArrayList<String> = GetTextSQL(CID!!, pass!!, acc_no!!)
+        val card_info: ArrayList<String> = GetTextSQL(ID!!, pass!!, acc_no!!)
         val b: Button = findViewById(com.example.bank.R.id.btn_requestcard)
         val blocker: Button = findViewById(com.example.bank.R.id.btn_block)
         blocker.setOnClickListener {
-            BlockCard(CID!!, pass!!, card_info[0])
+            BlockCard(ID!!, pass!!, card_info[0])
             blocker.text = "BLOCKED"
         }
 
         b.setOnClickListener {
-            createCard(CID, pass, acc_no)
+            createCard(ID, pass, acc_no)
         }
 
         if (!card_info.isEmpty()) {
@@ -51,11 +51,11 @@ class CardActivity : AppCompatActivity() {
     fun GetTextSQL(id: String, pass: String, account: String): ArrayList<String> {
         var data = ArrayList<String>()
         try {
-            val connectionhelper: ConnectionHelperUser = ConnectionHelperUser()
+            val connectionhelper: ConnectionHelperManager = ConnectionHelperManager()
             val connect: Connection = connectionhelper.connectionclass(id, pass)
             if (connect != null) {
                 val query: String =
-                    "Select CardNo,ExpDate from Cards_view where Cards_view.AccNo = $account"
+                    "Select CardNo,ExpDate from Manager_Cards_view where manager_Cards_view.AccNo = $account"
                 val st: Statement = connect.createStatement()
                 val rs: ResultSet = st.executeQuery(query)
                 if (!rs.next()) {

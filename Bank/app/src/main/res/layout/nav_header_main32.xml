@@ -22,18 +22,19 @@
         android:src="@drawable/male_profile" />
 
     <TextView
+        android:id="@+id/namer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Name"
+        android:text="MENU"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/customerID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Customer ID"
+        android:text="Welcome"
         android:textSize="18dp" />
 </LinearLayout>

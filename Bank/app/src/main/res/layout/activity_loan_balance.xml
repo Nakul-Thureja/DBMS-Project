@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".AvailActivity">
+    tools:context=".LoanBalanceActivity">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -27,43 +27,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Avail Money"
+                android:text="Balance"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_marginHorizontal="10dp"
                 android:textColor="@color/black"/>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/balance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxStrokeColor="@color/purple_700"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                android:layout_marginTop="20dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_amt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:hint="Amount"
-                    android:textColor="@color/black"
-                    android:textColorHint="#7A8089"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:id="@+id/btn_avail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/purple_700"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:text=""
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
-                android:text="Avail"
-                android:textColor="@color/white"/>
-
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@color/black"/>
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

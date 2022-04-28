@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".AvailActivity">
+    tools:context=".LoanAvailActivity">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Avail Money"
+                android:text="Repay Amount"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -42,7 +42,7 @@
                 android:layout_marginTop="20dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_amt"
+                    android:id="@+id/et_lona_amount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -55,13 +55,13 @@
 
 
             <Button
-                android:id="@+id/btn_avail"
+                android:id="@+id/btn_repay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/purple_700"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"
-                android:text="Avail"
+                android:text="Repay"
                 android:textColor="@color/white"/>
 
 
