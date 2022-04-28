@@ -12,9 +12,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bank.*
-import com.example.bank.databinding.FragmentEmployeeBinding
-import com.example.bank.databinding.FragmentMaccountsBinding
-import com.example.bank.ui.Loan.LoanViewModel
 import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.Statement
@@ -22,23 +19,23 @@ import java.sql.Statement
 class EmployeeFragment : Fragment() , EmployeeListAdapter.OnItemClickListener {
 
     private var _binding: com.example.bank.databinding.FragmentEmployeeBinding? = null
-    var myCID = ""
+    var myID = ""
     var myPass = ""
+    var myBranch = ""
     // This property is only valid between onCreateView and
     // onDestroyView.
-    var items = ArrayList<String>()
+    var items = ArrayList<EmployeeData>()
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val activity : AccountScreen1 = getActivity() as AccountScreen1
-//        myCID = activity.getMyCID().toString()
-//        myPass = activity.getMyPass().toString()
-        items.add("Hi")
-        items.add("Hi2")
-        items.add("Hi3")
+       val activity : Main4Activity = getActivity() as Main4Activity
+        myID = activity.getMyID().toString()
+        myPass = activity.getMyPass().toString()
+        myBranch = activity.getMyBranch().toString()
+
 
         val homeViewModel =
             ViewModelProvider(this).get(EmployeeViewModel::class.java)
@@ -49,7 +46,7 @@ class EmployeeFragment : Fragment() , EmployeeListAdapter.OnItemClickListener {
         val recyclerView: RecyclerView = binding.recyclerView
 
         recyclerView.layoutManager = LinearLayoutManager(activity);
-        //items = GetTextSQL(myCID, myPass)
+        items = GetTextSQL(myID, myPass,myBranch)
 
         val adapter: EmployeeListAdapter = EmployeeListAdapter(items,this)
         recyclerView.adapter = adapter
@@ -59,13 +56,13 @@ class EmployeeFragment : Fragment() , EmployeeListAdapter.OnItemClickListener {
     }
 
 
-    private fun GetTextSQL(id : String, pass : String) : ArrayList<LoanAccountdata> {
-        val send = ArrayList<LoanAccountdata>()
+    private fun GetTextSQL(id : String, pass : String,branch:String) : ArrayList<EmployeeData> {
+        val send = ArrayList<EmployeeData>()
         try{
-            val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
+            val connectionhelper : ConnectionHelperManager = ConnectionHelperManager()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select LoanID,LoanType,BranchNo,DOC,Duration,Status from Customer_view,Loan_view where Loan_view.CID = $id and Customer_view.CID = Loan_view.CID"
+                val query : String = "Select EmpID,Name,PhoneNo,Salary from manager_employee_view"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
@@ -77,9 +74,7 @@ class EmployeeFragment : Fragment() , EmployeeListAdapter.OnItemClickListener {
                         val data2 = rs.getString(2)
                         val data3 = rs.getString(3)
                         val data4 = rs.getString(4)
-                        val data5 = rs.getString(5)
-                        val data6 = rs.getString(6)
-                        val acc = LoanAccountdata(data,data2,data3,data4,data5,data6)
+                        val acc = EmployeeData(data,data2,data3,data4)
                         send.add(acc)
                     } while (rs.next()) }
                 return send
@@ -99,30 +94,39 @@ class EmployeeFragment : Fragment() , EmployeeListAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(pos: Int,option : Int) {
-        if(option==-1){
-            Toast.makeText(activity,"Your Loan is not approved yet", Toast.LENGTH_SHORT).show()
-        }
         if(option == 1){
-            //repay
-                //change
-            val intent = Intent(activity, LoanAvailActivity::class.java);
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID", myCID)
-            intent.putExtra("pass", myPass)
-            //intent.putExtra("Acc", items[pos].number)
+            terminator(myID,myPass,items[pos].EmpID)
+            Toast.makeText(activity,"Employee Terminated",Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, Main4Activity::class.java)
+            intent.putExtra("ID",myID);
+            intent.putExtra("password",myPass)
+            intent.putExtra("branch",myBranch)
             startActivity(intent)
         }
 
         else if(option==2){
             //change
-            val intent = Intent(activity, LoanBalanceActivity::class.java);
-            intent.putExtra("AccNo",pos)
-            intent.putExtra("CardNo",pos)
-            intent.putExtra("CID", myCID)
+            val intent = Intent(activity, SalaryChange::class.java);
+            intent.putExtra("ID", myID)
             intent.putExtra("pass", myPass)
-            //intent.putExtra("Acc", items[pos].number)
+            intent.putExtra("EmpID", items[pos].EmpID)
+            intent.putExtra("branch",myBranch)
             startActivity(intent)
         }
 
+    }
+
+    fun terminator(id: String, pass: String,empID:String) {
+        try {
+            val connectionhelper: ConnectionHelper = ConnectionHelper()
+            val connect: Connection = connectionhelper.connectionclass(id, pass)
+            if (connect != null) {
+                val query = "Delete from Works where empID = $empID and Empid not in (Select ManagerID from Branch)"
+                val st: Statement = connect.createStatement()
+                val rs: Int = st.executeUpdate(query)
+            }
+        } catch (e: Exception) {
+            Log.e("Errorss", e.message!!)
+        }
     }
 }

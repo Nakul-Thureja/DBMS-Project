@@ -2,6 +2,7 @@ package com.example.bank
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -60,6 +61,13 @@ class Main4Activity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.action_settings) {
+            this.finish()
+        }
+        return false
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

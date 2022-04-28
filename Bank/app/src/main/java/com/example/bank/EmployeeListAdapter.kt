@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EmployeeListAdapter(private val items: ArrayList<String>, private val listener: OnItemClickListener):
+class EmployeeListAdapter(private val items: ArrayList<EmployeeData>, private val listener: OnItemClickListener):
     RecyclerView.Adapter<EmployeeListAdapter.EmployeeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeListAdapter.EmployeeViewHolder {
         val view: View =
@@ -17,7 +17,10 @@ class EmployeeListAdapter(private val items: ArrayList<String>, private val list
 
     override fun onBindViewHolder(holder: EmployeeViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.EmpId.text  = currentItem;
+        holder.EmpId.text  = "EmpID: "+currentItem.EmpID
+        holder.EmpSalary.text = "Salary: "+currentItem.Salary
+        holder.EmpName.text = "Name: "+currentItem.Name
+        holder.EmpPhone.text = "Phone Number: "+currentItem.Number
     }
 
 
