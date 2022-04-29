@@ -22,4 +22,11 @@
         android:name="com.example.bank.ui.Employee.EmployeeFragment"
         android:label="Employee"
         tools:layout="@layout/fragment_employee" />
+
+    <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.example.bank.ui.Stats.StatsFragment"
+        android:label="Statistics"
+        tools:layout="@layout/fragment_stats" />
+
 </navigation>

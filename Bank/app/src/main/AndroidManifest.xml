@@ -14,6 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bank">
         <activity
+            android:name=".StatsActivity5"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity4"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".StatsActivity1"
+            android:exported="false" />
+        <activity
             android:name=".SalaryChange"
             android:exported="false" />
         <activity

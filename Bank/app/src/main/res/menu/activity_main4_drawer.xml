@@ -16,5 +16,9 @@
             android:id="@+id/nav_employee"
             android:icon="@drawable/ic_baseline_people_24"
             android:title="Employee" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/ic_baseline_data_usage_24"
+            android:title="Statistics" />
     </group>
 </menu>

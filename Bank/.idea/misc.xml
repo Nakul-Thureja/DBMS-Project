@@ -27,13 +27,20 @@
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up2.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_sign_up3.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_stats1.xml" value="0.1" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_stats2.xml" value="0.1" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_stats3.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_stats4.xml" value="0.12158054711246201" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/activity_stats5.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/app_bar_account_screen1.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/app_bar_main32.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/app_bar_manager_page.xml" value="0.1" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/blank_fragment.xml" value="0.19021739130434784" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/content_account_screen1.xml" value="0.1" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/content_main32.xml" value="0.25" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/content_manager_page.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_accounts.xml" value="0.21195652173913043" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_blank.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_contactus.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_employee.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_gallery.xml" value="0.21195652173913043" />
@@ -42,6 +49,7 @@
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_maccounts.xml" value="0.1" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_mloan.xml" value="0.25" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_slideshow.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/fragment_stats.xml" value="0.1" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/item_account.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/item_employee.xml" value="0.25" />
         <entry key="..\:/Users/AKSHAT/Desktop/AP/DBMS-Project/Bank/app/src/main/res/layout/item_loan.xml" value="0.176" />
