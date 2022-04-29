@@ -59,7 +59,7 @@ class LoanFragment : Fragment() , LoanListAdapter.OnItemClickListener {
             val connectionhelper : ConnectionHelperUser = ConnectionHelperUser()
             val connect : Connection = connectionhelper.connectionclass(id,pass)
             if(connect!=null) {
-                val query : String = "Select LoanID,LoanType,BranchNo,DOC,Duration,Status from Customer_view,Loan_view where Loan_view.CID = $id and Customer_view.CID = Loan_view.CID"
+                val query : String = "Select LoanID,LoanType,BranchNo,DOC,Duration,Status from Loan_view where Loan_view.CID = $id"
                 val st : Statement = connect.createStatement()
                 val rs : ResultSet = st.executeQuery(query)
                 if (!rs.next()) {
