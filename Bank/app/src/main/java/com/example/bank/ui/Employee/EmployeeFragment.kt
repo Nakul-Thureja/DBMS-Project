@@ -148,23 +148,10 @@ class EmployeeFragment : Fragment() , EmployeeListAdapter.OnItemClickListener {
             val connect: Connection = connectionhelper.connectionclass(id, pass)
             if (connect != null) {
 
-                val query0 =
-                    "Select Salary,EmpId from manager_employee_view where Empid not in (Select ManagerID from Branch)"
-                val st0: Statement = connect.createStatement()
-                val rs0: ResultSet = st0.executeQuery(query0)
-                if (!rs0.next()) {
-                    println("ResultSet isss empty in Java")
-                } else {
-                    do {
-                        val salary = rs0.getString(1)
-                        val empID = rs0.getString(2)
-                        val newsalary = salary.toInt() + 5 * salary.toInt() / 100
-                        val query =
-                            "Update manager_employee_view SET salary = $newsalary where Empid = $empID"
+               val query = "Update manager_employee_view SET salary = 1.05*salary"
                         val st: Statement = connect.createStatement()
                         val rs: Int = st.executeUpdate(query)
-                    } while (rs0.next())
-                }
+
             }
         } catch (e: Exception) {
             Log.e("Errorss", e.message!!)
