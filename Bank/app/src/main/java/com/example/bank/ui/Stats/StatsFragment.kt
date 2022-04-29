@@ -40,6 +40,8 @@ class StatsFragment : Fragment() {
         val btn3: Button = binding.btn3
         val btn4: Button = binding.btn4
         val btn5: Button = binding.btn5
+        val btn6: Button = binding.btn6
+        val btn7: Button = binding.btn7
 
         btn1.setOnClickListener {
             val intent = Intent(activity, StatsActivity1::class.java);
@@ -76,7 +78,20 @@ class StatsFragment : Fragment() {
             intent.putExtra("branch",myBranch)
             startActivity(intent)
         }
-
+        btn6.setOnClickListener {
+            val intent = Intent(activity, StatsActivity6::class.java);
+            intent.putExtra("ID",myID);
+            intent.putExtra("password",myPass)
+            intent.putExtra("branch",myBranch)
+            startActivity(intent)
+        }
+        btn7.setOnClickListener {
+            val intent = Intent(activity, StatsActivity7::class.java);
+            intent.putExtra("ID",myID);
+            intent.putExtra("password",myPass)
+            intent.putExtra("branch",myBranch)
+            startActivity(intent)
+        }
 
         val root: View = binding.root
 
